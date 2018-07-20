@@ -1,0 +1,15 @@
+<h2>Select for Details !!!</h2>
+<ul>
+  <li *ngFor="let agent of agents" (click)="onSelect(agents)">
+    <span>{{agent.id}}</span> {{agent.name}}
+  </li>
+</ul>
+
+<div *ngIf="agents">
+
+  <h2>{{agents.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{agents.id}}</div>
+  <div><span>name: </span>{{agents.name}}</div>
+
+</div>
+ 
