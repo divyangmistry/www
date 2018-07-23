@@ -6,18 +6,22 @@ import { AgentsComponent } from './agents/agents.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './agentlist';
+import { AppRoutingModule } from './/app-routing.module';
+import { AgentDetailsComponent } from './agent-details/agent-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AgentsComponent
+    AgentsComponent,
+    AgentDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

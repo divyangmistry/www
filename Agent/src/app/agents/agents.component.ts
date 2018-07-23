@@ -35,6 +35,11 @@ export class AgentsComponent implements OnInit {
     });
   }
 
+  // showdetails(agent): void{
+  //   console.log('there showing on different page !!!');
+  //   this.service.showdetailsofAgents();
+  // }
+
   delete(agent: Agent): void{
     console.log('there it got deleted !!!');
     this.agents = this.agents.filter(a => a !== agent);

@@ -1,16 +1,22 @@
 <h2>Select for Details !!!</h2>
 <ul>
   <li *ngFor="let agent of agents">
-    <span>{{agent.id}}</span> {{agent.name}}
-    
-    <button type="button" 
-      class="btn btn-large btn-block btn-danger"
-      (click)="delete(agent)" >X</button>
+    <a routerLink="/detail/{{agent.id}}">
+      <span>{{agent.id}}</span> {{agent.name}}
+    </a>
+      <button type="button" 
+        class="btn btn-large btn-block btn-danger"
+        (click)="showdetails(agent)" >details</button>
+
+      <button type="button" 
+        class="btn btn-large btn-block btn-danger"
+        (click)="delete(agent)" >delete</button>
+        
   </li>
 </ul>
 
 <div>
-  <label>Agent'sX:
+  <label>add new Agent:
       <input #agentName />
   </label>
 
