@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InMemoryDataService, Agent } from "../agentlist";
 import { MainService } from "../main.service";
 import { HttpClient } from "@angular/common/http";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agents',
@@ -12,7 +13,8 @@ export class AgentsComponent implements OnInit {
   agents: Agent[];
 
   constructor(
-    private service: MainService
+    private service: MainService,
+    private router: Router
   ) { }
 
   ngOnInit(){
@@ -35,10 +37,10 @@ export class AgentsComponent implements OnInit {
     });
   }
 
-  // showdetails(agent): void{
-  //   console.log('there showing on different page !!!');
-  //   this.service.showdetailsofAgents();
-  // }
+  showdetails(id): void{
+    console.log('there showing on different page !!!');
+    this.router.navigateByUrl(`/detail/${id}`);
+  }
 
   delete(agent: Agent): void{
     console.log('there it got deleted !!!');
