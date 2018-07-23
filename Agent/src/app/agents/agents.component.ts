@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { agentlist, Agent } from "../agentlist";
+import { InMemoryDataService, Agent } from "../agentlist";
+import { MainService } from "../main.service";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-agents',
@@ -7,18 +9,36 @@ import { agentlist, Agent } from "../agentlist";
   styleUrls: ['./agents.component.css']
 })
 export class AgentsComponent implements OnInit {
+  agents: Agent[];
 
-  agents =  agentlist;
-  
+  constructor(
+    private service: MainService
+  ) { }
+
   ngOnInit(){
     this.getAgents();
   }
 
-  ngOnInit() {
+  getAgents(): void {
+    this.service.getAgents()
+    .subscribe((agents)=>{
+      this.agents = agents
+    });
   }
 
-  onSelect(agents: Agent){
-    this.selectedAgent = agents;
+
+  add(name: string): void{
+    console.log('there it got added !!!');
+    this.service.addAgents({name} as Agent)
+    .subscribe(agent => {
+      this.agents.push(agent);
+    });
   }
 
+  delete(agent: Agent): void{
+    this.agents = this.agents.filter(a => a !== agent);
+    this.service.deleteAgents(agent).subscribe();
+  }
 }
+
+
