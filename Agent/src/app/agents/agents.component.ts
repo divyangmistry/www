@@ -36,6 +36,7 @@ export class AgentsComponent implements OnInit {
   }
 
   delete(agent: Agent): void{
+    console.log('there it got deleted !!!');
     this.agents = this.agents.filter(a => a !== agent);
     this.service.deleteAgents(agent).subscribe();
   }
