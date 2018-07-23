@@ -10,9 +10,9 @@ export class AgentsComponent implements OnInit {
 
   agents =  agentlist;
   
-  selectedAgent: Agent;
-
-  constructor() { }
+  ngOnInit(){
+    this.getAgents();
+  }
 
   ngOnInit() {
   }
