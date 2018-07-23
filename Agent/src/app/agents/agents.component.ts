@@ -38,7 +38,7 @@ export class AgentsComponent implements OnInit {
   }
 
   showdetails(id): void{
-    console.log('there showing on different page !!!');
+    console.log('there showing on different page !!!'+this.service.trypro);
     this.router.navigateByUrl(`/detail/${id}`);
   }
 

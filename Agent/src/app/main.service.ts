@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { InMemoryDataService } from "./agentlist";
 import { Observable } from 'rxjs';
 import { Agent } from './agentlist';
-import { catchError, map, tap } from 'rxjs/operators';
 // import { url } from 'inspector';
 
 const httpOptions = {
@@ -45,4 +44,8 @@ export class MainService {
     return this.http.get<Agent>(url)
   }
 
+  trypro = new Promise((resolve,reject) => {
+    resolve(console.log('Inside the Reject'));
+    reject(console.log('Inside the Reject'));
+  });
 }
