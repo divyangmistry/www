@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Agent } from "../agentlist";
 import { MainService } from "../main.service";
-import { Router, ParamMap } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agents',

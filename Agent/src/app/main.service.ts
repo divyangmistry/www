@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Agent } from './agentlist';
 
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -26,8 +27,8 @@ export class MainService {
     return this.http.post<Agent>(this.agentsUrl, agent,httpOptions)
   }
 
-  deleteAgents(id: number): Observable<Agent>{
-    // const id = typeof agent === 'number' ? agent: agent.id;
+  deleteAgents(agent: Agent): Observable<Agent>{
+    const id = typeof agent === 'number' ? agent: agent.id;
     const url = `${this.agentsUrl}/${id}`;
     return this.http.delete<Agent>(url,httpOptions);
   }
