@@ -1,4 +1,5 @@
 <h2>Select for Details !!!</h2>
+<div>
 <ul>
   <li *ngFor="let agent of agents">
     <a routerLink="/detail/{{agent.id}}">
@@ -6,14 +7,17 @@
     </a>
       <button type="button" 
         class="btn btn-large btn-block btn-danger"
-        (click)="showdetails(agent.id)" >details</button>
+        (click)="showdetails(agent.id)" >display</button>
 
       <button type="button" 
         class="btn btn-large btn-block btn-danger"
         (click)="delete(agent)" >delete</button>
+        <!-- <a href="" ng-click="showme=true">Show</a>
+        <button ng-click="showme=false">Hide</button>  -->
         
   </li>
 </ul>
+</div>
 
 <div>
   <label>add new Agent:
@@ -26,3 +30,10 @@
     >Add Agent</button>  
 </div>
  
+<!-- <div>
+    <p ng-hide="showme">It will appear here!</p>
+    <h2 ng-show="showme">This is mah content, yo!</h2>
+  <h2>{{agent.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{agent.id}}</div>
+  <div>name : {{agent.name}}</div>
+</div> -->

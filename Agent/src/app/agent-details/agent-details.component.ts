@@ -1,8 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Agent } from '../agentlist';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MainService } from '../main.service';
 import { Location } from '@angular/common';
+import { switchMap } from "rxjs/operators";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-agent-details',
@@ -12,7 +14,8 @@ import { Location } from '@angular/common';
 export class AgentDetailsComponent implements OnInit {
  
 
-  @Input() agent: Agent;
+  @Input() 
+  agent: Agent;
 
   constructor(
     private route: ActivatedRoute,

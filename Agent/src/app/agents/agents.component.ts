@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InMemoryDataService, Agent } from "../agentlist";
+import { Agent } from "../agentlist";
 import { MainService } from "../main.service";
-import { HttpClient } from "@angular/common/http";
-import { Router } from '@angular/router';
+import { Router, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-agents',
@@ -38,7 +37,7 @@ export class AgentsComponent implements OnInit {
   }
 
   showdetails(id): void{
-    console.log('there showing on different page !!!'+this.service.trypro);
+    console.log('there showing on different page !!!');
     this.router.navigateByUrl(`/detail/${id}`);
   }
 
@@ -47,6 +46,8 @@ export class AgentsComponent implements OnInit {
     this.agents = this.agents.filter(a => a !== agent);
     this.service.deleteAgents(agent).subscribe();
   }
+
+  
 }
 
 

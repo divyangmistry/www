@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Agent } from './agentlist';
-// import { url } from 'inspector';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +14,7 @@ const httpOptions = {
 export class MainService {
 
   private agentsUrl = 'api/agents';
-  
+
   constructor(
     private http: HttpClient
   ) { }
@@ -27,8 +27,8 @@ export class MainService {
     return this.http.post<Agent>(this.agentsUrl, agent,httpOptions)
   }
 
-  deleteAgents(agent:Agent): Observable<Agent>{
-    const id = typeof agent === 'number' ? agent: agent.id;
+  deleteAgents(id: number): Observable<Agent>{
+    // const id = typeof agent === 'number' ? agent: agent.id;
     const url = `${this.agentsUrl}/${id}`;
     return this.http.delete<Agent>(url,httpOptions);
   }
@@ -38,13 +38,8 @@ export class MainService {
     return this.http.get<Agent>(url);
   }
 
-  showdetailsofAgents(id: number): Observable<Agent>{
-    const url = ``;
-    return this.http.get<Agent>(url)
-  }
-
-  trypro = new Promise((resolve,reject) => {
-    resolve(console.log('Inside the Reject'));
-    reject(console.log('Inside the Reject'));
-  });
+  // trypro = new Promise((resolve,reject) => {
+  //   resolve(console.log('Inside the Reject'));
+  //   reject(console.log('Inside the Reject'));
+  // });
 }
