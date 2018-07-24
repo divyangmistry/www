@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { InMemoryDataService } from "./agentlist";
 import { Observable } from 'rxjs';
 import { Agent } from './agentlist';
 // import { url } from 'inspector';
