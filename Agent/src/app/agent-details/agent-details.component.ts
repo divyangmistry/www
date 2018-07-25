@@ -3,8 +3,6 @@ import { Agent } from '../agentlist';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MainService } from '../main.service';
 import { Location } from '@angular/common';
-import { switchMap } from "rxjs/operators";
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-agent-details',
