@@ -6,6 +6,7 @@ export class user {
   lname: string;
 }
 
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',

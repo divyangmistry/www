@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTableComponent } from './data-table/data-table.component';
+import { HttpClientModule } from '@angular/common/http';
 // import { user } from "./user";
 // import { MatCard } from "@angular/material";
 
@@ -18,7 +19,7 @@ import { DataTableComponent } from './data-table/data-table.component';
   imports: [
     FormsModule,
     BrowserModule,
-    // user,
+    HttpClientModule,
     ReactiveFormsModule
     // MatCard
   ],
