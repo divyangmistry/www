@@ -1,0 +1,60 @@
+<div>  
+  <button type="button" class="btn btn-primary|light btn-lg" (click)=add()> Add !</button>
+</div>
+<div *ngIf="!submitted">
+<div class="jumbotron" *ngIf="adduser">
+    
+    <h2>fill in the Form below :</h2>
+    <form (ngSubmit)="showcl()" #form="ngForm" >
+      <div>
+        {{ngForm}}
+      </div>
+
+      <div class="form-group" 
+      [ngClass]="{
+        'has-error' : fname.invalid && fname.touched,
+        'has-success' : fname.valid && fname.touched 
+      }">
+        
+        <label class="control-label">First Name:</label>
+        <input class="form-control" type="text" placeholder="First Name" name="fname" [(ngModel)]="user.fname" required #fname =  "ngModel">
+        
+        <span class="help-block" *ngIf="fname.invalid && fname.touched">
+          please enter the First Name !
+        </span>
+        
+        valid: {{fname.valid}}<br>
+        Touched: {{fname.touched}}
+      
+      </div>
+      
+      <div class="form-group" 
+      [ngClass]="{
+        'has-error': lname.invalid && lname.touched,
+        'has-success': lname.valid && lname.touched
+      }">
+        <label class="control-label">Last Name</label>
+        <input class="form-control" type="text" placeholder="Last Name" name="lname" [(ngModel)]="user.lname" required #lname = "ngModel">
+        
+        <span class="help-block" *ngIf="lname.invalid && lname.touched">
+          Please enter the Last Name !
+        </span>
+
+        Valid: {{lname.valid}}<br>
+        Touched: {{lname.touched}}
+      </div>
+      
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+      </div>
+      
+      <div>
+        {{formData}}
+      </div>      
+    </form>
+  </div>
+</div>
+
+<div class="jumbotron text-center" *ngIf="submitted">
+  <p> <em> Instance Submitted successfully !!! </em> </p>
+</div>
