@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AgentsComponent implements OnInit {
   agents: Agent[];
-
+  
   constructor(
     private service: MainService,
     private router: Router
@@ -47,7 +47,12 @@ export class AgentsComponent implements OnInit {
     this.service.deleteAgents(agent).subscribe();
   }
 
+  // a: number;
   
+  xyz = {}
+    a = 10;
+  }
+
 }
 
 
