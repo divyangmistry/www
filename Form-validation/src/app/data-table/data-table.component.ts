@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
-import { user, FormComponent } from "../form/form.component";
+import { Observable, observable } from 'rxjs';
+import { user } from "../../list";
+
+
 
 @Component({
   selector: 'app-data-table',
@@ -10,22 +13,43 @@ import { user, FormComponent } from "../form/form.component";
 })
 export class DataTableComponent implements OnInit {
 
-  user: string [];
+  user: user[];
+
+  private url= '../../list.ts'
+  characters: Observable<any[]>;
+  columns: string[];
 
   constructor(
-    private httpService: HttpClient
+    private http: HttpClient
   ) { }
   
 
   ngOnInit() {
-    this.httpService.get('./assets/list.json').subscribe(
+    this.http.get(this.url).subscribe(
       data => {
-        this.user = data as string [];	 // FILL THE ARRAY WITH DATA.
-        //  console.log(this.arrBirds[1]);
+        this.user = data as user[];	 // FILL THE ARRAY WITH DATA.
+        //  console.log(this.user[0]);
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);
       }
     );
+
+    this.getuser().subscribe(data => {
+      console.log(data);
+    })
+    
+    this.showuser();
+
   }
+  
+  showuser(){
+    this.http.put(this.url, user);
+  }
+
+  getuser(): Observable<any> {
+    return this.http.get(this.url);
+  }
+
 }
+

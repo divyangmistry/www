@@ -49,8 +49,8 @@ export class AgentsComponent implements OnInit {
 
   // a: number;
   
-  xyz = {}
-    a = 10;
+  xyz = {
+    a : 10
   }
 
 }

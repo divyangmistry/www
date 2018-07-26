@@ -9,10 +9,17 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Sasuke</td>
+      <td>Uchiha</td>
+      <td><button type="button" class="btn btn-sm btn-block btn-light">?</button></td>
+      <td><button type="button" class="btn btn-sm btn-block btn-danger">X</button></td>
+    </tr>
     <tr *ngFor="let user of users">
-      <th scope="row">{{user.id}}</th>
-      <td>{{user.fname}}</td>
-      <td>{{user.lname}}</td>
+      <th>{{user.ID}}</th>
+      <td>{{user.First_Name}}</td>
+      <td>{{user.Last_Name}}</td>
       <td><button type="button" class="btn btn-sm btn-block btn-light">?</button></td>
       <td><button type="button" class="btn btn-sm btn-block btn-danger">X</button></td>
     </tr>

@@ -6,8 +6,6 @@ import { FormComponent } from './form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataTableComponent } from './data-table/data-table.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { user } from "./user";
-// import { MatCard } from "@angular/material";
 
 
 @NgModule({
@@ -21,7 +19,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule
-    // MatCard
   ],
   providers: [],
   bootstrap: [AppComponent]
