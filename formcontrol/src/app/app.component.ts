@@ -13,7 +13,6 @@ export class AppComponent implements OnInit{
   public myForm: FormGroup;
   public submitted: boolean;
   public events: any[] = [];
-
   constructor(
     private _fb: FormBuilder
   ) { }
@@ -30,9 +29,28 @@ export class AppComponent implements OnInit{
     this.subcribeToFormChanges();
   }
 
+  showtable(model: User, isValid: boolean) {
+    this.submitted = true;
+    
+    //var raju : model;
+
+    console.log(model);
+
+    const people = {
+      name: '',
+      address: {
+          street: '',
+          postcode: ''
+      }
+    };
+  }
   save(model: User, isValid: boolean) {
     this.submitted = true;
     
+    //var raju : model;
+
+    console.log(model);
+
     const people = {
       name: '',
       address: {
@@ -43,15 +61,24 @@ export class AppComponent implements OnInit{
     
     (<FormGroup>this.myForm)
     .setValue(people, { onlySelf: true });
-        
+   
     console.log(model, isValid);
   }
 
   subcribeToFormChanges() {
     const myFormValueChanges$ = this.myForm.valueChanges; 
-    myFormValueChanges$.subscribe(x => this.events
-        .push({ event: 'STATUS CHANGED', object: x }));
+    //console.log(this.events);
+  //   myFormValueChanges$.subscribe(x => this.events
+  //       .push({ event: 'STATUS CHANGED', object: x }));
+  // }
+
+//   myFormValueChanges$.subscribe(x => this.raju
+//     .push({ event: 'STATUS CHANGED', object: x }));
+// }
   }
+
+b=20
+
 
 }
 

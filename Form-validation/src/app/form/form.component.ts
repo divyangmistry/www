@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+// import { DataTableComponent } from "../data-table/data-table.component";
 // import { user } from "../user";
 
 export class user {
@@ -22,55 +23,57 @@ export class FormComponent implements OnInit {
   public submitted: boolean;
   public events: any[] = [];
 
+
+
   constructor(
     private _fb: FormBuilder
+    // private DT: DataTableComponent
   ){
   }
   
   ngOnInit() {
     this.myForm = new FormGroup({
-      name: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
-      address: new FormGroup({
-          street: new FormControl('', <any>Validators.required),
-          postcode: new FormControl('')
-      })
+      fname: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
+      lname: new FormControl('', [<any>Validators.required])
     })
 
     this.subcribeToFormChanges();
   }
 
-  save(model: user, isValid: boolean) {
-    this.submitted = true;
+  // save(model: user, isValid: boolean) {
+  //   this.submitted = true;
     
-    const people = {
-      name: '',
-      address: {
-          street: '',
-          postcode: ''
-      }
-    };
+  //   const people = {
+  //     fname: '',
+  //     lname: ''
+  //   };
   
-  (<FormGroup>this.myForm)
-  .setValue(people, { onlySelf: true });
-      
-  console.log(model, isValid);
-}
+  // (<FormGroup>this.myForm)
+  // .setValue(people, { onlySelf: true });
+  
+  // console.log(model, isValid);
+  // } 
 
+  save(){
+    // this.DT.addusers();
+  }
   get formData() {
     return JSON.stringify(this.user);
   }
 
   showcl(){
     console.log(this.user);
-    this.submitted = true;
+    // this.DT.addusers();
   }
 
   add(){
     this.adduser = true;
+    this.myForm.reset();
   }
 
   subcribeToFormChanges() {
-    const myFormValueChanges$ = this.myForm.valueChanges; 
+    const myFormValueChanges$ = this.myForm.valueChanges;
+    console.log(this.events) 
     myFormValueChanges$.subscribe(x => this.events
         .push({ event: 'STATUS CHANGED', object: x }));
   }

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Observable, observable } from 'rxjs';
-import { user } from "../../list";
-
-
+import { Observable } from 'rxjs';
+import { user } from "../list";
 
 @Component({
   selector: 'app-data-table',
@@ -14,10 +11,7 @@ import { user } from "../../list";
 export class DataTableComponent implements OnInit {
 
   user: user[];
-
-  private url= '../../list.ts'
-  characters: Observable<any[]>;
-  columns: string[];
+  private url = './list';
 
   constructor(
     private http: HttpClient
@@ -25,31 +19,41 @@ export class DataTableComponent implements OnInit {
   
 
   ngOnInit() {
-    this.http.get(this.url).subscribe(
-      data => {
-        this.user = data as user[];	 // FILL THE ARRAY WITH DATA.
-        //  console.log(this.user[0]);
-      },
-      (err: HttpErrorResponse) => {
-        console.log (err.message);
-      }
-    );
 
-    this.getuser().subscribe(data => {
-      console.log(data);
+    this.getusers().subscribe(user => {
+      console.log(user);
+      this.user = user
     })
-    
-    this.showuser();
 
   }
-  
-  showuser(){
-    this.http.put(this.url, user);
+
+  getusers(): Observable<user[]> {
+    return this.http.get<user[]>(this.url);
   }
 
-  getuser(): Observable<any> {
-    return this.http.get(this.url);
+  addusers(): Observable<user[]>{
+    return this.http.post<user[]>(this.url, this.users);
   }
+
+  users =
+[
+    {
+        ID: 1,
+       First_Name: "Naruto",
+        Last_Name: "Usumaki"
+        
+    },
+    {
+        ID: 2,
+       First_Name: "Sasuke",
+        Last_Name: "Uchiha"
+    },
+    {
+        ID: 3,
+       First_Name: "Luffy",
+        Last_Name: "Monkey D."
+    }
+];
 
 }
 

@@ -30,13 +30,37 @@
         </div>
       </div> 
     </div>
-      
+
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        Table formate :
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Postcode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of x">
+              <td>{{x}}</td>
+              <!-- <td>{{event.address}}</td>
+              <td>{{event.postcode}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
           Form changes:
-        <div *ngFor="let event of events">
+
+          {{raju}}
+        <!-- <div *ngFor="let event of raju">
           <pre>{{ event | json }}</pre>
-        </div>
+        </div> -->
           
       </div>
     </div>

@@ -1,0 +1,35 @@
+<div class="container">
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="jambotron">
+        <form [formGroup]=myform (ngSubmit)=add(myform.value)>
+
+          <div>
+            <label>First Name: </label>
+            <input type="text" formControlName="fname">
+          </div>
+
+          <div>
+            <label>Last Name: </label>
+            <input type="text" formControlName="lname">
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-success" [disabled]=!myform.valid>
+              Submit
+            </button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <app-form-table></app-form-table>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<table class="table table-hover">
+        
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+      <tr>
+        <td>static</td>
+        <td>data</td>
+        <td><button type="button" class="btn btn-danger">X</button></td>
+      </tr>
+
+      <tr *ngFor="let user of users">
+        <td>{{user.fname}}</td>
+        <td>{{user.lname}}</td>
+        <td><button type="button" class="btn btn-danger">X</button></td>
+      </tr>
+    </tbody>
+  
+</table>

@@ -47,12 +47,6 @@ export class AgentsComponent implements OnInit {
     this.service.deleteAgents(agent).subscribe();
   }
 
-  // a: number;
-  
-  xyz = {
-    a : 10
-  }
-
 }
 
 
