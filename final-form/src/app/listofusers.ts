@@ -3,6 +3,7 @@ import { InMemoryDbService } from "angular-in-memory-web-api";
 export class User{
     fname: string;
     lname:string
+  push: any;
 }
 
 export class InMemoryDataService implements InMemoryDbService {
@@ -16,3 +17,4 @@ export class InMemoryDataService implements InMemoryDbService {
       return {users};
     }
   }
+  

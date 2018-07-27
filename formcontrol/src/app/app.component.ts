@@ -67,18 +67,15 @@ export class AppComponent implements OnInit{
 
   subcribeToFormChanges() {
     const myFormValueChanges$ = this.myForm.valueChanges; 
-    //console.log(this.events);
-  //   myFormValueChanges$.subscribe(x => this.events
-  //       .push({ event: 'STATUS CHANGED', object: x }));
-  // }
+    console.log(this.events);
+    myFormValueChanges$.subscribe(x => this.events
+        .push({ event: 'STATUS CHANGED', object: x }));
+  }
 
 //   myFormValueChanges$.subscribe(x => this.raju
 //     .push({ event: 'STATUS CHANGED', object: x }));
 // }
   }
 
-b=20
 
-
-}
 

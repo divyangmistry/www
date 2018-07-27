@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from "@angular/forms";
 import { User } from './listofusers';
+import { MainService } from "./main.service";
 
 @Component({
   selector: 'app-root',
@@ -11,28 +12,46 @@ import { User } from './listofusers';
 export class AppComponent implements OnInit {
   title = 'app';
 
-  private myform: FormGroup
+  user:User[];
+  private myForm: FormGroup
+  private mainService: MainService
+  people: User;
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.myform = new FormGroup({
+    this.myForm = new FormGroup({
       fname: new FormControl('',[Validators.required]),
       lname: new FormControl('',[Validators.required])
     });
   }
 
-  add(user: User[]){
+  add(){
     
     const people = {
-      fname: '',
-      lname: ''
+      fname: this.myForm.value.fname,
+      lname: this.myForm.value.lname
     };
 
-    (<FormGroup>this.myform).setValue(people,{onlySelf:true});
+    (<FormGroup>this.myForm).setValue(people,{onlySelf:true});
 
-    console.log(user);
+    console.log(people);
+
+    // this.mainService.addUsers(this.people as User).subscribe(X=> this.people 
+    //   .push(this.people));
     
+  }
+
+  addUser(){
+
+    const done = this.myForm.value;
+    this.mainService.addUsers(done).subscribe(x=> this.user .push(done));
+
+    // console.log(user)
+    // // this.mainService.updateUsers(user)
+    // this.mainService.addUsers(user as User)
+    // .subscribe(users =>
+    //   {this.user.push(users)})
   }
 
 }

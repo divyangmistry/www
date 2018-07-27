@@ -3,23 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormTableComponent } from './form-table/form-table.component';
-import { ReactiveFormsModule } from "@angular/forms";
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
-// import { InMemoryDataService, User } from "./listofusers";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './listofusers';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // InMemoryDataService,
-    // User,
     FormTableComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    HttpClientXsrfModule.disable(),
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    // HttpClient,
     ReactiveFormsModule
   ],
   providers: [],

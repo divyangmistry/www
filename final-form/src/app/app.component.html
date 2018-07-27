@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class="jambotron">
-        <form [formGroup]=myform (ngSubmit)=add(myform.value)>
+        <form [formGroup]=myForm (ngSubmit)=addUser(myForm.value)>
 
           <div>
             <label>First Name: </label>
@@ -16,7 +16,7 @@
           </div>
 
           <div>
-            <button type="submit" class="btn btn-success" [disabled]=!myform.valid>
+            <button type="submit" class="btn btn-success" [disabled]=!myForm.valid>
               Submit
             </button>
           </div>
