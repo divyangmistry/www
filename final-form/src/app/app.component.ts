@@ -13,7 +13,7 @@ import { MainService } from "./main.service";
 export class AppComponent implements OnInit {
   title = 'app';
 
-  
+  user1: User;
   users: User[];
   private myForm: FormGroup
 
@@ -50,8 +50,10 @@ export class AppComponent implements OnInit {
   editUser(user: User): void {
     
     console.log(user);
-    // this.mainService.getUser(id)
-      // .subscribe(user => user);
+    // user => this.user1 = user;
+    this.user1 = user;
+    // this.mainService.getUser(name)
+    //   .subscribe(user => user);
   }
 
   deleteUser(user: User){
