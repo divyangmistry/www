@@ -12,7 +12,6 @@ import { MainService } from "./main.service";
 export class AppComponent implements OnInit {
   title = 'app';
 
-  user:User[];
   private myForm: FormGroup
   private mainService: MainService
   people: User;
@@ -24,22 +23,6 @@ export class AppComponent implements OnInit {
       fname: new FormControl('',[Validators.required]),
       lname: new FormControl('',[Validators.required])
     });
-  }
-
-  add(){
-    
-    const people = {
-      fname: this.myForm.value.fname,
-      lname: this.myForm.value.lname
-    };
-
-    (<FormGroup>this.myForm).setValue(people,{onlySelf:true});
-
-    console.log(people);
-
-    // this.mainService.addUsers(this.people as User).subscribe(X=> this.people 
-    //   .push(this.people));
-    
   }
 
   addUser(){
