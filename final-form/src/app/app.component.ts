@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from "@angular/forms";
 import { User } from './listofusers';
 import { MainService } from "./main.service";
+import { Observable, of } from 'rxjs';
 // import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,8 +14,8 @@ import { MainService } from "./main.service";
 export class AppComponent implements OnInit {
   title = 'app';
 
-  user1: User;
   users: User[];
+  user1: User;
   private myForm: FormGroup
 
   constructor(
@@ -47,11 +48,13 @@ export class AppComponent implements OnInit {
     this.mainService.updateUsers(user);
   }
 
-  editUser(user: User): void {
+  editUser(user: User): void{
     
     console.log(user);
     // user => this.user1 = user;
     this.user1 = user;
+
+    this.myForm.patchValue(user);
     // this.mainService.getUser(name)
     //   .subscribe(user => user);
   }
