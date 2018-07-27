@@ -7,12 +7,12 @@
 
           <div>
             <label>First Name: </label>
-            <input type="text" formControlName="fname">
+            <input type="text" formControlName="fname" [(ngModel)]="users.fname">
           </div>
 
           <div>
             <label>Last Name: </label>
-            <input type="text" formControlName="lname">
+            <input type="text" formControlName="lname" [(ngModel)]="users.lname">
           </div>
 
           <div>
@@ -26,9 +26,33 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-      <app-form-table></app-form-table>
+      <!-- <app-form-table></app-form-table> -->
+      <table class="table table-hover">
+        
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+      
+          <tbody>
+      
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>{{user.fname}}</td>
+              <td>{{user.lname}}</td>
+              <td><button type="button" class="btn btn-default" (click)="editUser(user)">?</button></td>
+              <td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">X</button></td>
+            </tr>
+          </tbody>
+        
+      </table>
     </div>
   </div>
 

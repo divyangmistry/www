@@ -7,6 +7,8 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './listofusers';
+import { MainService } from './main.service';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { InMemoryDataService }  from './listofusers';
     // HttpClient,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ MainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
