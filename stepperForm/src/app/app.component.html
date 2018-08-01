@@ -1,0 +1,35 @@
+<mat-vertical-stepper >
+    <mat-step [stepControl]="FirstFormGroup">
+        <form [formGroup]="FirstFormGroup">
+            
+            <ng-template matStepLabel>give your name :</ng-template>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Name" formControlName="name" required>
+            </mat-form-field>
+            <button mat-button matStepperNext>Next</button>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="SecondFormGroup">
+        <form [formControl]="SecondFormGroup">
+
+            <ng-template matStepLabel>Give you Address :</ng-template>
+            <mat-form-field>
+                <mat-input-container floatPlaceholder="auto">
+                    <input matInput formControlName="street"
+                           type="text"
+                           required
+                           placeholder="street">
+                </mat-input-container>
+
+                <mat-input-container floatPlaceholder="auto">
+                    <input matInput formControlName="pincode"
+                           type="text"
+                           required
+                           placeholder="pin">
+                </mat-input-container>
+
+            </mat-form-field>
+        </form>
+    </mat-step>
+</mat-vertical-stepper>

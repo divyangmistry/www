@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormTableComponent } from './form-table/form-table.component';
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -12,8 +11,7 @@ import { MainService } from './main.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FormTableComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

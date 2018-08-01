@@ -3,28 +3,45 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <div class="jambotron">
-        <form [formGroup]=myForm (ngSubmit)=addUser(myForm.value)>
+        <form [formGroup]=myForm (ngSubmit)=addUser(myForm.value) *ngIf="!formDekh">
 
           <div>
             <label>First Name: </label>
-            <input type="text" formControlName="fname" >
-            <!-- <label>selected fname : {{user1.fname}}</label> -->
-            <!-- <input type="text" [(ngModel)]="user1.fname"> -->
+            <input type="text" formControlName="fname">
           </div>
 
           <div>
             <label>Last Name: </label>
             <input type="text" formControlName="lname">
-            <!-- <label>selected lname : {{user1.lname}}</label> -->
           </div>
 
-          <div>
+          <div *ngIf="!btnSave">
             <button type="submit" class="btn btn-success" [disabled]=!myForm.valid>
-              Submit
-            </button>
+            Submit
+           </button>
           </div>
           
         </form>
+
+        <form (ngSubmit)=addUser(myForm.value) *ngIf="formDekh">
+
+            <div>
+              <label>First Name: </label>
+              <input type="text" [(ngModel)]="fname" [ngModelOptions]="{standalone: true}">
+            </div>
+  
+            <div>
+              <label>Last Name: </label>
+              <input type="text" [(ngModel)]="lname" [ngModelOptions]="{standalone: true}">
+            </div>
+  
+            <div *ngIf="!btnSave">
+              <button type="submit" class="btn btn-success" [disabled]=!myForm.valid>
+              Submit
+             </button>
+            </div>
+            
+          </form>
       </div>
     </div>
   </div>
@@ -50,8 +67,9 @@
               <td>{{user.id}}</td>
               <td>{{user.fname}}</td>
               <td>{{user.lname}}</td>
-              <td><button type="button" class="btn btn-default" (click)="editUser(user)">?</button></td>
-              <td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">X</button></td>
+              <td><button type="button" class="btn btn-default" (click)="getUserById(user)">?</button></td>
+              <td><button type="button" class="btn btn-danger" (click)="deleteUser(user)">delete</button></td>
+              <td><button *ngIf="btnSave" type="button" class="btn btn-success" (click)="updateUser(user)" >update</button></td>
             </tr>
           </tbody>
         

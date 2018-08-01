@@ -5,13 +5,18 @@
     <a routerLink="/detail/{{agent.id}}">
       <span>{{agent.id}}</span> {{agent.name}}
     </a>
-      <button type="button" 
+      <!-- <button type="button" 
         class="btn btn-large btn-block btn-danger"
-        (click)="showdetails(agent.id)" >display</button>
+        (click)="showdetails(agent.id)" >display</button> -->
+        <button nz-button class="btn btn-large btn-block btn-danger"
+        (click)="showdetails(agent.id)" nzType="primary">display</button>
 
-      <button type="button" 
+        <button nz-button class="btn btn-large btn-block btn-danger"
+        (click)="delete(agent)" nzType="danger">delete</button>
+
+      <!-- <button type="button" 
         class="btn btn-large btn-block btn-danger"
-        (click)="delete(agent)" >delete</button>
+        (click)="delete(agent)" >delete</button> -->
         <!-- <a href="" ng-click="showme=true">Show</a>
         <button ng-click="showme=false">Hide</button>  -->
         

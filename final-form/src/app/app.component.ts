@@ -13,10 +13,10 @@ import { Observable, of } from 'rxjs';
 
 export class AppComponent implements OnInit {
   title = 'app';
-
+  formDekh: Boolean = false;
   users: User[];
-  user1: User;
   private myForm: FormGroup
+  btnSave: Boolean = false;
 
   constructor(
     private mainService: MainService
@@ -44,25 +44,50 @@ export class AppComponent implements OnInit {
     const user = this.myForm.value;
     // console.log(done);
     this.mainService.addUsers(user)
-    .subscribe(x=>{this.users.push(x)})
-    this.mainService.updateUsers(user);
+    .subscribe(x=>{
+      this.users.push(x);
+    })   
+    
   }
 
-  editUser(user: User): void{
+  getUserById(user: User): void{
     
     console.log(user);
-    // user => this.user1 = user;
-    this.user1 = user;
-
     this.myForm.patchValue(user);
-    // this.mainService.getUser(name)
-    //   .subscribe(user => user);
+    this.btnSave = true;
+    // this.formDekh = true;
+  }
+
+  updateUser(user: User): void{
+    // console.log(user);
+    let data=Object.assign({},{'id':user.id},this.myForm.value);
+      this.mainService.updateUsers(data);
+    // console.log(user.id)
+
+    // this.users.forEach((user, index) => {
+      
+    //   if (user.fname) {
+    //     console.log(user.fname)
+    //   } else {
+        
+    //   }
+
+      // if (user.id = index) {
+      //   console.log(user.id)
+      //   this.mainService.updateUsers(user)        
+      // } else {
+      //   console.log('inside else !!!')
+      // }
+    // });
+    this.formDekh = false;
+    this.btnSave = false;
+    this.myForm.reset(this.myForm);
   }
 
   deleteUser(user: User){
     console.log('Deleted !'+ user.id)
     this.users = this.users.filter(u => u !== user);
-    this.mainService.deleteHero(user.id).subscribe();
+    this.mainService.deleteHero(user).subscribe();
   }
 
 }

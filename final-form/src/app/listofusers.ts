@@ -10,10 +10,10 @@ export class User{
 export class InMemoryDataService implements InMemoryDbService {
     static users: User[];
     createDb() {
-      const users = [
-        {id: 1, fname: 'Zorro', lname: 'Reborn'},
-        {id: 2, fname: 'Naruto', lname: 'Uzumaki'},
-        {id: 3, fname: 'Sasuke', lname: 'Uchiha'}
+      let users = [
+        {id: 0, fname: 'Zorro', lname: 'Reborn'},
+        {id: 1, fname: 'Naruto', lname: 'Uzumaki'},
+        {id: 2, fname: 'Sasuke', lname: 'Uchiha'}
       ];
       return {users};
     }
