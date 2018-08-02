@@ -3,5 +3,14 @@
     <a routerLink="/dashboard">Dashboard</a>
     <a routerLink="/heroes">Heroes</a>
 </nav>
+<div *ngIf="Smessage">
+    The simple Subject is : {{Smessage}}
+</div>
+<div *ngIf="Bmessage">
+    The Behaviour Subject is : {{Bmessage}}
+</div>
+<div *ngIf="Rmessage">
+    The Replay Subject is : {{Rmessage}}
+</div>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

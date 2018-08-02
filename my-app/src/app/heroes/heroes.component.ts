@@ -9,8 +9,11 @@ import { HeroService } from "../hero.service";
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[];
-
-  constructor(private heroService: HeroService) { }
+  
+  
+  constructor(
+    private heroService: HeroService,
+  ) { }
 
   ngOnInit() {
     this.getHeroes();
@@ -36,4 +39,10 @@ export class HeroesComponent implements OnInit {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
   }
+
+  setMessage(event) {
+    console.log(event.value);
+    this.heroService.SubMessage(event.value);
+  }
+  
 }

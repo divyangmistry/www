@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Hero } from "./hero";
 import { HEROES } from "./ mock-heroes";
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { Observable, of, Subject, BehaviorSubject, ReplaySubject } from 'rxjs';
+import { catchError, map, tap, startWith } from 'rxjs/operators';
 import { MessageService } from "./message.service";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { InMemoryDataService } from "./in-memory-data.service";
@@ -17,11 +17,16 @@ const httpOptions = {
 export class HeroService {
   
   private heroesUrl = 'api/heroes';  // URL to web api
-
+  public Smessage = new Subject<string>();
+  public Bmessage = new BehaviorSubject<string>("Before Anyone call's it !!");
+  public Rmessage = new ReplaySubject<any>(3);
+  
   constructor(
     private messageService: MessageService,
     private http: HttpClient
-  ) { }
+  ) { 
+    
+  }
 
     /** GET heroes from the server */
   getHeroes (): Observable<Hero[]> {
@@ -103,6 +108,20 @@ searchHeroes(term: string): Observable<Hero[]> {
     catchError(this.handleError<Hero[]>('searchHeroes', []))
   );
 }
-  
-}
 
+
+SubMessage(value: string){
+  
+  this.Rmessage.next("01");
+  this.Rmessage.next("02");
+  this.Rmessage.next("03");
+  this.Rmessage.next("04");
+
+  this.Bmessage.next(value);
+  this.Smessage.next(value);
+  this.Rmessage.next(value);
+
+  this.Rmessage.subscribe(text=>{console.log(text)});
+  this.Rmessage.next(value);
+  }
+}
