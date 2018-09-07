@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Yourself as HERO !</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]=heroForm (ngSubmit)="add()">
+
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Strengths</ion-label>
+      <ion-input type="text" formControlName="strength"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Age</ion-label>
+      <ion-input type="number" formControlName="age"></ion-input>
+    </ion-item>
+
+  <button ion-button full type="submit" [disabled]="!heroForm.valid">Add !</button>
+  </form>
+</ion-content>

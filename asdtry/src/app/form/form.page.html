@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add data to List</ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="submit" color="success" shape="round" (click)="submit()">Add</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="addForm">
+
+    <ion-item>
+      <ion-label position="floating">Name:</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Age:</ion-label>
+      <ion-input type="number" formControlName="age"></ion-input>
+    </ion-item>
+
+  </form>
+</ion-content>
+<!-- <ion-footer>
+  <ion-buttons full>
+    <ion-button full type="submit" (click)="submit()">Add to List.</ion-button>
+  </ion-buttons>
+</ion-footer> -->

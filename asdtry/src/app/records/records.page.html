@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar text-center color="primary">
+    <ion-title> <b>Medical Records</b> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <h4 text-center padding *ngIf="!list.length"> You have no Medical Records.</h4>
+
+  <ion-card *ngFor="let record of list;" padding>
+
+    <ion-card-header center (click)="select(record)">
+      <ion-label color="primary">
+        <b>
+          {{record.title}}
+        </b>
+      </ion-label>
+
+      <p style="margin-top: 5px; align-content: center;">
+        {{record.description}}
+        <b> <ion-icon class="end" (click)="delete(record)" name="trash"></ion-icon> </b>
+      </p>
+
+    </ion-card-header>
+
+  </ion-card>
+
+</ion-content>

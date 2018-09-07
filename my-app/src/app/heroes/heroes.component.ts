@@ -44,5 +44,5 @@ export class HeroesComponent implements OnInit {
     console.log(event.value);
     this.heroService.SubMessage(event.value);
   }
-  
+
 }

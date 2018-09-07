@@ -1,0 +1,64 @@
+<ion-header>
+    <ion-toolbar text-center color="primary">
+        <ion-title><b>Lyfcheck</b>
+            <ion-icon class="end" (click)="cart()" name="cart"></ion-icon>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+
+        <ion-row>
+            <ion-col col-12>
+                <ion-card (click)="search()">
+                    <ion-item item-contents no-lines>
+                        <ion-icon name="search" color="dark" small item-left>
+                        </ion-icon>
+                        <ion-label ion-text color="dark" small>What are you looking for?</ion-label>
+                        <ion-icon name="arrow-forward" color="dark" small item-right></ion-icon>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-12>
+                <ion-card (click)="addPrescription()">
+                    <ion-card-content>
+                        <ion-item>
+                            <h2>Order Medicine</h2>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-12>
+                <ion-card (click)="refillScreen()">
+                    <ion-card-content>
+                        <ion-item>
+                            <h2>Refill Medicine</h2>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col col-12>
+                <ion-card (click)="orders()">
+                    <ion-card-content>
+                        <ion-item>
+                            <h2>Your Orders</h2>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

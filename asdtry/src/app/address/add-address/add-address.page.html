@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar text-center color="primary">
+    <ion-buttons solt="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> <b>Address</b> </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <form name="addressForm" [formGroup]="addressForm">
+
+    <ion-list>
+      <br>
+      <ion-item>
+        <ion-label color="primary" position="floating">Name</ion-label>
+        <ion-input type="text" name="username" required formControlName="name"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label color="primary" position="floating">Building name</ion-label>
+        <ion-input type="text" name="flatnumber" required formControlName="address1"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label color="primary" position="floating">Street</ion-label>
+        <ion-input type="text" name="street" required formControlName="address2"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label color="primary" position="floating">City</ion-label>
+        <ion-input type="text" name="city" required formControlName="city"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label color="primary" position="floating">Pincode</ion-label>
+        <ion-input type="tel" name="pincode" required formControlName="pincode" pattern="[0-9.]+" minlength="6"
+          maxlength="6"></ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-label color="primary" position="floating">Mobile No</ion-label>
+        <ion-input type="tel" name="mobnumber" required formControlName="mobile" pattern="[0-9.]+" minlength="6"
+          maxlength="10"></ion-input>
+      </ion-item>
+      <br>
+
+      <ion-list inline>
+
+        <ion-radio-group formControlName="type">
+
+          <ion-item>
+            <ion-label text-wrap class="radio-option-label">Home</ion-label>
+            <ion-radio value="home"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label text-wrap class="radio-option-label">Work</ion-label>
+            <ion-radio value="work"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label text-wrap class="radio-option-label">Other</ion-label>
+            <ion-radio value="other"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+
+      </ion-list>
+
+
+    </ion-list>
+
+  </form>
+
+</ion-content>
+
+<ion-footer>
+  <ion-button type="submit" [disabled]="!addressForm.valid" expand="full" size="large" color="primary" shape="round"
+    (click)="add()">Add</ion-button>
+</ion-footer>

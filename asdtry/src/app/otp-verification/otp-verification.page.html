@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>OTP - Verification Page</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form>
+
+    <ion-item>
+      <ion-label position="floating">Enter OTP :</ion-label>
+      <ion-input type="tel" [(ngModel)]="OTP" name="otp"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="submitOtp()">Submit</ion-button>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title text-center> <b>
+      <ion-buttons solt="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      Address</b> 
+      <ion-icon class="end" (click)="addAddressModal()" name="add"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card padding (click)="selectAddress(address)" *ngFor="let address of addresses">
+
+    <ion-label ion-text color="primary">
+      <b>{{address.name}}</b>
+    </ion-label>
+
+    <ion-icon name="arrow-forward" slot="end"></ion-icon>
+    <p>{{address.address1}} {{address.address2}}</p>
+    <p>{{address.city}}</p>
+    <p>{{address.pincode}}</p>
+    <p>{{address.mobile}}</p>
+
+  </ion-card>
+
+</ion-content>

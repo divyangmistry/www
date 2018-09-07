@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Navigation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <button ion-button full (click)="modal()">click to present Model</button>
+
+  <button ion-button full (click)="push1()">click to Push data to next page</button>
+
+  <form [formGroup]="nameForm" (ngSubmit)="send()" *ngIf="!pushNG">
+
+    <ion-item>
+      <ion-label floating>
+        Enter Name to be Pushed to next page:
+      </ion-label>
+      <ion-input formControlName="name" type="text"></ion-input>
+    </ion-item>
+
+    <button ion-button full success type="submit" [disabled]="!nameForm.valid">send</button>
+
+  </form>
+
+  <button ion-button full (click)="setRoot()">click to set Root Page</button>
+
+  <button ion-button full (click)="newThing()">click for something NEW</button>
+
+</ion-content>

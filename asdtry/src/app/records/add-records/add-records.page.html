@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar text-center color="primary">
+    <ion-title>
+      <b>
+      <ion-buttons slot=start>
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+         Add Record</b> 
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <form name="recordForm">
+
+      <ion-item>
+        <ion-label position="floating" color="primary">Title</ion-label>
+        <ion-input type="text" name="title" [(ngModel)]="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">Description</ion-label>
+        <ion-input type="text" name="description" [(ngModel)]="description"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item item-contents icon-left no-lines (click)="presentActionSheet()">
+        <ion-icon item-left color="primary" name="images"></ion-icon>
+        <ion-label>Upload photo</ion-label>
+        <ion-icon name="arrow-forward" item-right></ion-icon>
+      </ion-item>
+
+      <ion-item *ngIf="lastImage">
+        <img src="{{pathForImage(lastImage)}}" *ngIf="lastImage" style="width: 150px;height: 150px;">
+      </ion-item> -->
+
+    </form>
+
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer class="padding-0">
+  <ion-button expand="full" class="padding-0" (click)="upload()"> Submit</ion-button>
+</ion-footer>

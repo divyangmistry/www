@@ -122,6 +122,5 @@ SubMessage(value: string){
   this.Rmessage.next(value);
 
   this.Rmessage.subscribe(text=>{console.log(text)});
-  this.Rmessage.next(value);
   }
 }

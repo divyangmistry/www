@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title>Displaying List only</ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        close
+      </button>
+    </ion-buttons> -->
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item *ngFor="let list of lists">
+
+      <ion-title>{{list.name}}</ion-title>
+    </ion-item>
+    <button ion-button (click)="push()">
+      push
+    </button>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar text-center color="primary">
+    <ion-title> <b>Address</b> </ion-title>
+    <ion-icon class="end" (click)="update()"  color="white" name="checkmark-circle"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form name="addressForm" [formGroup]="addressForm">
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary" stacked>Name</ion-label>
+        <ion-input type="text" name="username" required formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Building name</ion-label>
+        <ion-input type="text" name="flatnumber" required formControlName="address1"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Street</ion-label>
+        <ion-input type="text" name="street" required formControlName="address2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>City</ion-label>
+        <ion-input type="text" name="city" required formControlName="city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Pincode</ion-label>
+        <ion-input type="tel" name="pincode" required formControlName="pincode" maxlength="6" minlength="6" pattern="[0-9.]+"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Mobile No</ion-label>
+        <ion-input type="tel" name="mobnumber" required formControlName="mobile" maxlength="10" minlength="10" pattern="[0-9.]+"></ion-input>
+      </ion-item>
+      <p></p>
+      <ion-list radio-group inline formControlName="type">
+        <ion-item>
+          <ion-label text-wrap class="radio-option-label">Home</ion-label>
+          <ion-radio value="home"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label text-wrap class="radio-option-label">Work</ion-label>
+          <ion-radio value="work"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label text-wrap class="radio-option-label">Other</ion-label>
+          <ion-radio value="other"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+  </form>
+</ion-content>
